@@ -1,0 +1,10 @@
+{
+  "code": 200,
+  "data": {
+    "name": "vue3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "commonjs"
+  }
+}

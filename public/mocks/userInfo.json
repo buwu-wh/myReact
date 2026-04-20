@@ -1,0 +1,14 @@
+{
+  "code": 200,
+  "data": {
+    "name": "莫文蔚,莫文蔚,莫文蔚",
+    "age": "18",
+    "sexy": "女",
+    "username": "莫文蔚",
+    "email": "44@qq.com",
+    "password": "12352dfg",
+    "agree": true,
+    "gender": "male",
+    "remember": true
+  }
+}

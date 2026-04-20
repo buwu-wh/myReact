@@ -1,0 +1,6 @@
+.content {
+  border-inline: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+  white-space: nowrap;
+}

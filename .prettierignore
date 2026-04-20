@@ -1,0 +1,34 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# production
+dist
+dist-ssr
+build
+
+# misc
+.DS_Store
+*.log
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# cache
+.cache
+.parcel-cache
+.next
+.nuxt
+.vite
+
+# coverage
+coverage
+.nyc_output
+
+# other
+.vscode
+.idea
+*.local
