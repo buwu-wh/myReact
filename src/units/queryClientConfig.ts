@@ -4,7 +4,7 @@ import { QueryClient } from '@tanstack/react-query';
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000, // 1分钟后变旧大幅度发
+      staleTime: 60 * 1000, // 1分钟后变旧
       gcTime: 5 * 60 * 1000, // 缓存保留5分钟
       retry: 1, // 失败重试1次
       refetchOnWindowFocus: false, // 不自动刷新
