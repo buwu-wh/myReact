@@ -79,7 +79,7 @@ function TestForm() {
   }
   let imgItem: JSX.Element | null = null;
   const id = 2;
-  const { data, error, isError } = useQuery({
+  const { error, isError } = useQuery({
     queryKey: ['todo', id],
     queryFn: () => {
       const aa = api.getUserInfo({ id }).then((res) => res.data);

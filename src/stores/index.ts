@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import appInfo from '@/apis/requests/appInfo';
-import { persist, subscribeWithSelector } from 'zustand/middleware';
+import { subscribeWithSelector } from 'zustand/middleware';
 interface BearState {
   count: number;
   bears: number;
@@ -63,7 +63,7 @@ const useStore = create(
     }
   )
 );*/
-const unsubscribe = useStore.subscribe(
+useStore.subscribe(
   (state) => state.bears, // 选择器
   (bears, prevBears) => {
     console.log(`bears啊啊 从 ${prevBears} 变为 ${bears}`);
