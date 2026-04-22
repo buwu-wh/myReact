@@ -1,5 +1,4 @@
 import { QueryClient } from '@tanstack/react-query';
-
 // 创建客户端（全局配置）
 export const queryClient = new QueryClient({
   defaultOptions: {

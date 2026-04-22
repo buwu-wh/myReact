@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { PersonType } from '../instant';
 import api from '@/apis/requests/appInfo';
 import { useQuery } from '@tanstack/react-query';

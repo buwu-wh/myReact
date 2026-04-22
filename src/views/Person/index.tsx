@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import {
   useLocation,
-  useNavigate,
+  // useNavigate,
   useSearchParams,
   useParams,
 } from 'react-router-dom';
@@ -44,9 +44,8 @@ const list: PersonType[] = [
 console.log('顶层顶层');
 function Person() {
   const location = useLocation();
-  const navigate = useNavigate();
   const params = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const bears = useStore((state) => state.bears);
   const incrementBears = useStore((state) => state.incrementBears);
   console.log(location, 'location');

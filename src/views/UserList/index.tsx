@@ -1,7 +1,5 @@
 import { FixedSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import { useRef, useCallback, useMemo } from 'react';
-import React from 'react';
 import style from './UserList.module.css';
 // 数据
 const users = Array.from({ length: 10000 }, (_, i) => ({

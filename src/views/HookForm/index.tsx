@@ -26,17 +26,17 @@ function HookForm() {
       errors, // 错误信息
       isSubmitting, // 是否正在提交
       isDirty, // 表单是否被修改过
-      isValid, // 表单是否验证通过
-      touchedFields, // 哪些字段被触碰过
+      // isValid, // 表单是否验证通过
+      // touchedFields, // 哪些字段被触碰过
     },
     reset, // 重置表单
-    setValue, // 手动设置值
-    getValues, // 获取当前值
-    watch, // 监听字段变化
+    // setValue, // 手动设置值
+    // getValues, // 获取当前值
+    // watch, // 监听字段变化
     control, // 用于 Controller（可控组件）
-    trigger, // 手动触发验证
-    setError, // 手动设置错误
-    clearErrors, // 清除错误
+    // trigger, // 手动触发验证
+    // setError, // 手动设置错误
+    // clearErrors, // 清除错误
   } = useForm({
     values: {
       username: '',
