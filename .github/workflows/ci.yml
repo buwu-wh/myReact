@@ -5,7 +5,7 @@ name: CI Pipeline # 工作流的名称
 
 # 1. 核心触发条件：监听推送到 main 分支的事件
 on:
-  push:
+  pull_request:
     branches: ['main'] # 只有当代码被推送到 main 分支时，才触发下面的任务
 
 # 2. 定义要执行的任务
