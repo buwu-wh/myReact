@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import style from './App.module.css';
 import Menu from '@/components/Menu/Menu';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, useMemo } from 'react';
 import { UserContext } from '@/hooks/userContext';
 import useStore from '@/stores/index';
 import { QueryClientProvider } from '@tanstack/react-query';
