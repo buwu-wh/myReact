@@ -1,0 +1,27 @@
+# 文件名: .github/workflows/ci.yml
+# 这是触发流水线的核心配置示例
+
+name: CI Pipeline # 工作流的名称
+
+# 1. 核心触发条件：监听推送到 main 分支的事件
+on:
+  push:
+    branches: ['main'] # 只有当代码被推送到 main 分支时，才触发下面的任务
+
+# 2. 定义要执行的任务
+jobs:
+  test-and-build: # 任务的ID
+    runs-on: ubuntu-latest # 任务运行的虚拟机环境
+    steps:
+      # 第一步：将你的代码签出到该虚拟机上
+      - uses: actions/checkout@v4
+
+      # 第二步：以 Node.js 项目为例，安装依赖并运行测试
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint
+        run: npm run lint
