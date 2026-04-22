@@ -9,7 +9,7 @@ import { queryClient } from '@/units/queryClientConfig';
 import Loading from '@/components/Loading';
 
 function App() {
-  const [message, setMessage] = useState('莫文蔚，哈哈');
+  const [message, setMessage] = useState('莫文蔚，哈哈很好的');
   console.log('Appas');
   const fetchData = useStore((state) => state.fetchData);
   const version = useStore((state) => state.version);
