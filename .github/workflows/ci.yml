@@ -8,6 +8,14 @@ on:
   pull_request:
     branches: ['main'] # 只有当代码被推送到 main 分支时，才触发下面的任务
 
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: '部署环境'
+        type: choice
+        options: [staging, production]
+
 # 2. 定义要执行的任务
 jobs:
   test-and-build: # 任务的ID
