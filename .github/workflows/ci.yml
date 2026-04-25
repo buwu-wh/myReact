@@ -3,7 +3,7 @@
 
 name: CI Pipeline # 工作流的名称
 env:
-  BUILD_SH_PATH: '../../scripts/build.sh' # 构建脚本路径
+  BUILD_SH_PATH: './scripts/build.sh' # 构建脚本路径
 
 # 1. 核心触发条件：监听推送到 main 分支的事件
 on:
