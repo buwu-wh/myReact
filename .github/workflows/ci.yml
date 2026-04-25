@@ -2,6 +2,8 @@
 # 这是触发流水线的核心配置示例
 
 name: CI Pipeline # 工作流的名称
+env:
+  BUILD_SH_PATH: '../../scripts/build.sh' # 构建脚本路径
 
 # 1. 核心触发条件：监听推送到 main 分支的事件
 on:
@@ -31,5 +33,5 @@ jobs:
           node-version: '20'
       - name: 执行校验及构建脚本
         run: |
-          chmod +x ../scripts/build.sh
-          ../scripts/build.sh '传入参数成功'
+          chmod +x ${{ env.BUILD_SH_PATH }}
+          ${{ env.BUILD_SH_PATH }} 传入参数成功
