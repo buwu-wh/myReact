@@ -52,6 +52,10 @@ jobs:
           chmod +x ${{ env.BUILD_SH_PATH }}
           ${{ env.BUILD_SH_PATH }} ${{ github.event.inputs.sit_env || false }}
 
+      - name: 处理 SPA 路由
+        if: github.event.inputs.sit_env == true
+        run: cp dist/index.html dist/404.html
+
       - name: 上传 Pages 产物
         if: github.event.inputs.sit_env == true
         uses: actions/upload-pages-artifact@v3
