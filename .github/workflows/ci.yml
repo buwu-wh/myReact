@@ -53,22 +53,22 @@ jobs:
           ${{ env.BUILD_SH_PATH }} ${{ github.event.inputs.sit_env || false }}
 
       - name: 处理 SPA 路由
-        if: fromJSON(github.event.inputs.sit_env) == true
+        if: fromJSON(github.event.inputs.sit_env || false) == true
         run: cp dist/index.html dist/404.html
 
         # 添加这个步骤：告诉 GitHub Pages 这是静态 HTML
       - name: 创建 .nojekyll 文件
-        if: fromJSON(github.event.inputs.sit_env) == true
+        if: fromJSON(github.event.inputs.sit_env || false) == true
         run: touch ./dist/.nojekyll # 注意路径要与下面的 upload 路径一致
 
       - name: 上传 Pages 产物
-        if: fromJSON(github.event.inputs.sit_env) == true
+        if: fromJSON(github.event.inputs.sit_env || false) == true
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist' # 这里替换成你的实际构建输出目录，React 通常是 build，Vue/Angular 通常是 dist
 
       # 关键步骤2：触发部署
       - name: 部署到 GitHub Pages
-        if: fromJSON(github.event.inputs.sit_env) == true
+        if: fromJSON(github.event.inputs.sit_env || false) == true
         id: deployment
         uses: actions/deploy-pages@v4
