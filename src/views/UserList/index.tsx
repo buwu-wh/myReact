@@ -1,4 +1,5 @@
 import { FixedSizeList as List } from 'react-window';
+import type { ListChildComponentProps } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import style from './UserList.module.css';
 // 数据
@@ -8,7 +9,7 @@ const users = Array.from({ length: 10000 }, (_, i) => ({
   email: `user${i}@example.com`,
 }));
 
-const Row = ({ index, style }) => {
+const Row = ({ index, style }: ListChildComponentProps) => {
   return (
     <div style={style}>
       name: {users[index].name} 啊email: {users[index].email}

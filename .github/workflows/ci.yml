@@ -2,6 +2,8 @@
 # 这是触发流水线的核心配置示例
 
 name: CI Pipeline # 工作流的名称
+env:
+  BUILD_SH_PATH: './scripts/build.sh' # 构建脚本路径
 
 # 1. 核心触发条件：监听推送到 main 分支的事件
 on:
@@ -29,7 +31,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install dependencies
-        run: npm ci
-      - name: Run lint
-        run: npm run lint
+      - name: 执行校验及构建脚本
+        run: |
+          chmod +x ${{ env.BUILD_SH_PATH }}
+          ${{ env.BUILD_SH_PATH }} dev
