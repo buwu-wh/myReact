@@ -39,3 +39,15 @@ jobs:
         run: |
           chmod +x ${{ env.BUILD_SH_PATH }}
           ${{ env.BUILD_SH_PATH }} ${{ github.event.inputs.sit_env || false }}
+
+      - name: 上传 Pages 产物
+        if: github.event.inputs.sit_env == true
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # 这里替换成你的实际构建输出目录，React 通常是 build，Vue/Angular 通常是 dist
+
+      # 关键步骤2：触发部署
+      - name: 部署到 GitHub Pages
+        if: github.event.inputs.sit_env == true
+        id: deployment
+        uses: actions/deploy-pages@v4
