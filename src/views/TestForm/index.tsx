@@ -109,7 +109,8 @@ function TestForm() {
   if (error)
     return (
       <div>
-        {isError}An error occurred: {error?.code}
+        An error occurred:{' '}
+        {(error as Error & { code?: string }).code ?? error.message}
       </div>
     );
   return (

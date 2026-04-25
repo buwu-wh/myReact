@@ -60,16 +60,8 @@ install_dependencies() {
     print_info "开始安装依赖..."
     
     # 优先使用 pnpm，然后 yarn，最后 npm
-    if command -v pnpm &> /dev/null; then
-        print_info "使用 pnpm 安装依赖"
-        pnpm install --frozen-lockfile
-    elif command -v yarn &> /dev/null; then
-        print_info "使用 yarn 安装依赖"
-        yarn install --frozen-lockfile
-    else
-        print_info "使用 npm 安装依赖"
-        npm ci
-    fi
+    print_info "使用 npm 安装依赖"
+    npm ci
     
     print_info "依赖安装完成"
 }

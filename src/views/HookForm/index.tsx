@@ -1,9 +1,20 @@
 import { useEffect } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
+import type { Control } from 'react-hook-form';
 import { useQuery } from '@tanstack/react-query';
 import api from '@/apis/requests/appInfo';
 
-function FirstNameDisplay({ control }) {
+interface FormData {
+  username: string;
+  email: string;
+  password: string;
+  age: string;
+  agree: boolean;
+  gender: string;
+  remember: boolean;
+}
+
+function FirstNameDisplay({ control }: { control: Control<FormData> }) {
   const firstName = useWatch({ name: 'username', control });
   console.log('firstNamevs反是不思');
   return <div>{firstName}</div>;
@@ -37,7 +48,7 @@ function HookForm() {
     // trigger, // 手动触发验证
     // setError, // 手动设置错误
     // clearErrors, // 清除错误
-  } = useForm({
+  } = useForm<FormData>({
     values: {
       username: '',
       // 默认值，可以是对象或函数
@@ -63,7 +74,7 @@ function HookForm() {
     // console.log(username, 'usernamevs反是不思');
   }, [data, reset]);
 
-  const onSubmit = async (dataF) => {
+  const onSubmit = async (dataF: FormData) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log(dataF); // { email: '...', password: '...', remember: true }
   };
