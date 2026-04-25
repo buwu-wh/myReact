@@ -2,6 +2,18 @@
 # 这是触发流水线的核心配置示例
 
 name: CI Pipeline # 工作流的名称
+
+# 关键权限配置：让 Actions 有权限写入 Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 确保只有一个部署任务在运行
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
 env:
   BUILD_SH_PATH: './scripts/build.sh' # 构建脚本路径
 
