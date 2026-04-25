@@ -56,6 +56,11 @@ jobs:
         if: github.event.inputs.sit_env == true
         run: cp dist/index.html dist/404.html
 
+        # 添加这个步骤：告诉 GitHub Pages 这是静态 HTML
+      - name: 创建 .nojekyll 文件
+        if: github.event.inputs.sit_env == true
+        run: touch ./dist/.nojekyll # 注意路径要与下面的 upload 路径一致
+
       - name: 上传 Pages 产物
         if: github.event.inputs.sit_env == true
         uses: actions/upload-pages-artifact@v3
