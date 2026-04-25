@@ -239,19 +239,7 @@ main() {
     install_dependencies
     
     # 代码检查
-    lint
-    
-    # 运行测试（除非跳过）
-    if [ "$SKIP_TEST" = false ]; then
-        # test
-    else
-        print_warning "跳过单元测试"
-    fi
-    
-    # 备份（生产环境）
-    if [ "$ENV" = "prod" ]; then
-       # backup $ENV
-    fi
+    lint 
     
     # 构建
     build $ENV
