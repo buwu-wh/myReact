@@ -60,10 +60,15 @@ function lazyLoad(component: React.LazyExoticComponent<React.ComponentType>) {
   return <ComponentName />;
 }
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <App />, // ← 在这里放布局组件
+      children: route as RouteObject[],
+    },
+  ],
   {
-    path: '/',
-    element: <App />, // ← 在这里放布局组件
-    children: route as RouteObject[],
-  },
-]);
+    basename: '/myReact', // ✅ 在这里设置路由基准路径
+  }
+);
