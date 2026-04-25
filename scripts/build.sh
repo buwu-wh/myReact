@@ -100,26 +100,7 @@ build() {
     print_info "开始构建项目..."
     
     # 设置环境变量
-    export NODE_ENV=production
-    
-    # 根据构建参数设置不同环境
-    case "$1" in
-        dev)
-            export REACT_APP_ENV=development
-            print_info "构建环境: 开发环境"
-            ;;
-        staging)
-            export REACT_APP_ENV=staging
-            print_info "构建环境: 预发布环境"
-            ;;
-        prod)
-            export REACT_APP_ENV=production
-            print_info "构建环境: 生产环境"
-            ;;
-        *)
-            print_info "构建环境: 默认环境"
-            ;;
-    esac
+    export NODE_ENV=production   
     
     # 执行构建命令
     npm run build
@@ -185,31 +166,6 @@ main() {
     CLEAN_ONLY=false
     ENV=""
     echo "测试参数：$@"
-    while [[ $# -gt 0 ]]; do
-        case $1 in
-            -h|--help)
-                show_help
-                exit 0
-                ;;
-            -s|--skip-test)
-                SKIP_TEST=true
-                shift
-                ;;
-            -c|--clean-only)
-                CLEAN_ONLY=true
-                shift
-                ;;
-            dev|staging|prod)
-                ENV=$1
-                shift
-                ;;
-            *)
-                print_error "未知参数: $1"
-                show_help
-                exit 1
-                ;;
-        esac
-    done
     
     # 检查必要命令
     check_command node

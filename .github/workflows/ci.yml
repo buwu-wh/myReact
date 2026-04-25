@@ -13,10 +13,14 @@ on:
   # 手动触发
   workflow_dispatch:
     inputs:
-      environment:
-        description: '部署环境'
-        type: choice
-        options: [staging, production]
+      sit_env:
+        description: 'sit环境'
+        type: boolean
+        default: false
+      prod_env:
+        description: 'prod环境'
+        type: boolean
+        default: false
 
 # 2. 定义要执行的任务
 jobs:
@@ -34,4 +38,4 @@ jobs:
       - name: 执行校验及构建脚本
         run: |
           chmod +x ${{ env.BUILD_SH_PATH }}
-          ${{ env.BUILD_SH_PATH }} dev
+          ${{ env.BUILD_SH_PATH }} ${{ github.event.inputs.sit_env || false }}
