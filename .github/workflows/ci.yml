@@ -34,4 +34,4 @@ jobs:
       - name: 执行校验及构建脚本
         run: |
           chmod +x ${{ env.BUILD_SH_PATH }}
-          ${{ env.BUILD_SH_PATH }} 传入参数成功
+          ${{ env.BUILD_SH_PATH }} dev
