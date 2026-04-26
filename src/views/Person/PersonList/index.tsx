@@ -27,7 +27,7 @@ function PersonList({ list, setCurr, currId }: PersonListProps) {
             display: 'inline-block',
             margin: '10px',
             cursor: 'pointer',
-            color: item.id === currId ? 'yellow' : '',
+            color: item.id === currId ? 'red' : '',
           }}
           key={item.id}
           onClick={() => {
