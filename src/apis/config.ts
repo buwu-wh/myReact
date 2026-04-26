@@ -1,5 +1,5 @@
 function getBaseUrl() {
-  console.log(location.protocol + 'location.protocol');
-  return location.protocol + '//localhost:5173/myReact/';
+  console.log(location.protocol + 'location.protocol' + location.host);
+  return `${location.protocol}//${location.host}/myReact/`;
 }
 export default { getBaseUrl };
