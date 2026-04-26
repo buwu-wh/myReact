@@ -52,14 +52,12 @@ jobs:
           chmod +x ${{ env.BUILD_SH_PATH }}
           ${{ env.BUILD_SH_PATH }} ${{ github.event.inputs.sit_env || false }}
 
-      - name: 处理 SPA 路由
-        if: fromJSON(github.event.inputs.sit_env || false) == true
-        run: cp dist/index.html dist/404.html
-
         # 添加这个步骤：告诉 GitHub Pages 这是静态 HTML
-      - name: 创建 .nojekyll 文件
+      - name: 处理 SPA 路由&创建 .nojekyll 文件
         if: fromJSON(github.event.inputs.sit_env || false) == true
-        run: touch ./dist/.nojekyll # 注意路径要与下面的 upload 路径一致
+        run: |
+          cp dist/index.html dist/404.html
+          touch ./dist/.nojekyll
 
       - name: 上传 Pages 产物
         if: fromJSON(github.event.inputs.sit_env || false) == true
